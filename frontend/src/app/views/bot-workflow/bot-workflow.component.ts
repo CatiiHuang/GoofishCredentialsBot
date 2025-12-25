@@ -174,9 +174,12 @@ export class BotWorkflowComponent implements OnInit, AfterViewInit, OnDestroy {
         const Drag = (await import('simple-mind-map/src/plugins/Drag.js')).default;
         // @ts-ignore - TouchEvent 插件支持移动端触摸
         const TouchEvent = (await import('simple-mind-map/src/plugins/TouchEvent.js')).default;
+        // @ts-ignore - Export 插件支持导出图片
+        const Export = (await import('simple-mind-map/src/plugins/Export.js')).default;
 
         MindMap.usePlugin(Drag);
         MindMap.usePlugin(TouchEvent);
+        MindMap.usePlugin(Export);
 
         this.mindMap = new MindMap({
             el: this.mindMapContainer.nativeElement,
@@ -347,6 +350,85 @@ export class BotWorkflowComponent implements OnInit, AfterViewInit, OnDestroy {
     zoomIn() { this.mindMap?.execCommand('ZOOM_IN'); }
     zoomOut() { this.mindMap?.execCommand('ZOOM_OUT'); }
     resetView() { this.mindMap?.execCommand('RESET'); }
+
+    // 导出工作流为 JSON 文件
+    exportWorkflow() {
+        const form = this.workflowForm();
+        if (!form.mindMapData) {
+            this.dialog.alert('提示', '没有可导出的数据');
+            return;
+        }
+
+        const exportData = {
+            name: form.name || '未命名流程',
+            description: form.description || '',
+            mindMapData: form.mindMapData,
+            exportTime: new Date().toISOString(),
+            version: '1.0'
+        };
+
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${form.name || 'workflow'}_${Date.now()}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    // 导入工作流 JSON 文件
+    async importWorkflow(event: Event) {
+        const input = event.target as HTMLInputElement;
+        const file = input.files?.[0];
+        if (!file) return;
+
+        try {
+            const text = await file.text();
+            const data = JSON.parse(text);
+
+            if (!data.mindMapData) {
+                await this.dialog.alert('错误', '无效的工作流文件');
+                return;
+            }
+
+            // 更新表单数据
+            this.workflowForm.set({
+                name: data.name || '',
+                description: data.description || '',
+                isDefault: false,
+                mindMapData: data.mindMapData
+            });
+
+            // 如果已经在编辑模式，重新初始化思维导图
+            if (this.editingWorkflow()) {
+                this.destroyMindMap();
+                setTimeout(() => this.initMindMap(), 100);
+            }
+
+            await this.dialog.alert('成功', '工作流导入成功');
+        } catch (e) {
+            console.error('导入失败', e);
+            await this.dialog.alert('错误', '导入失败，请检查文件格式');
+        } finally {
+            input.value = '';
+        }
+    }
+
+    // 导出为 PNG 图片
+    async exportAsPng() {
+        if (!this.mindMap) return;
+
+        try {
+            const dataUrl = await this.mindMap.export('png', false, this.workflowForm().name || 'workflow');
+            const a = document.createElement('a');
+            a.href = dataUrl;
+            a.download = `${this.workflowForm().name || 'workflow'}_${Date.now()}.png`;
+            a.click();
+        } catch (e) {
+            console.error('导出PNG失败', e);
+            await this.dialog.alert('错误', '导出图片失败');
+        }
+    }
 
     async saveWorkflow() {
         const form = this.workflowForm();
