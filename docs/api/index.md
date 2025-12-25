@@ -17,7 +17,7 @@
 | [订单管理](/api/orders) | `/api/orders` | 订单查询、发货操作 |
 | [自动回复](/api/autoreply) | `/api/autoreply` | 回复规则、AI 设置 |
 | [自动发货](/api/autosell) | `/api/autosell` | 发货规则、库存管理 |
-| [工作流](/api/workflow) | `/api/workflow` | 发货流程配置 |
+| [发货流程](/api/workflow) | `/api/workflow` | 发货流程配置 |
 | [系统日志](/api/logs) | `/api/logs` | 日志查询 |
 | [系统状态](/api/status) | `/api/status` | 健康检查、运行状态 |
 

@@ -13,7 +13,7 @@ GoofishCBot 前端基于 Angular 21 构建，提供完整的管理界面。
 | [会话管理](/guide/features/conversations) | `/conversations` | 实时消息、对话历史 |
 | [自动回复](/guide/features/autoreply) | `/autoreply` | 回复规则配置、AI 设置 |
 | [自动发货](/guide/features/autosell) | `/autosell` | 发货规则、库存管理 |
-| [工作流](/guide/features/workflow) | `/workflow` | 可视化流程编辑器 |
+| [发货流程](/guide/features/workflow) | `/workflow` | 可视化流程编辑器 |
 | [系统日志](/guide/features/logs) | `/logs` | 实时日志、历史日志查看 |
 | [系统设置](/guide/features/settings) | `/setting` | 主题切换、AI 配置 |
 

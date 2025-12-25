@@ -1,5 +1,7 @@
 # 账号管理
 
+![账号管理](/screenshots/accounts.png)
+
 路由：`/accounts`
 
 管理闲鱼账号的核心页面。

@@ -22,7 +22,7 @@
 | DaisyUI | 5.5 | UI 组件库 |
 | Monaco Editor | 0.55 | 代码编辑器 |
 | Lucide Angular | 0.562 | 图标库 |
-| simple-mind-map | 0.14 | 思维导图（工作流编辑器） |
+| simple-mind-map | 0.14 | 思维导图（发货流程编辑器） |
 | RxJS | 7.8 | 响应式编程 |
 
 ## 开发工具

@@ -34,7 +34,7 @@ export default defineConfig({
             { text: '会话管理', link: '/guide/features/conversations' },
             { text: '自动回复', link: '/guide/features/autoreply' },
             { text: '自动发货', link: '/guide/features/autosell' },
-            { text: '工作流', link: '/guide/features/workflow' },
+            { text: '发货流程', link: '/guide/features/workflow' },
             { text: '系统日志', link: '/guide/features/logs' },
             { text: '系统设置', link: '/guide/features/settings' }
           ]
@@ -51,7 +51,7 @@ export default defineConfig({
             { text: '订单管理', link: '/api/orders' },
             { text: '自动回复', link: '/api/autoreply' },
             { text: '自动发货', link: '/api/autosell' },
-            { text: '工作流', link: '/api/workflow' },
+            { text: '发货流程', link: '/api/workflow' },
             { text: '系统日志', link: '/api/logs' },
             { text: '系统状态', link: '/api/status' }
           ]
@@ -60,12 +60,17 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com' }
+      { icon: 'github', link: 'https://github.com/haiyewei/GoofishCredentialsBot' }
     ],
 
     footer: {
-      message: 'GoofishCBot - 闲鱼卡密机器人',
-      copyright: 'MIT License'
+      message: 'Released under the GPL-3.0 License.',
+      copyright: 'Copyright © 2025 haiyewei'
+    },
+
+    editLink: {
+      pattern: 'https://github.com/haiyewei/GoofishCredentialsBot/edit/main/docs/:path',
+      text: '在 GitHub 上编辑此页'
     },
 
     outline: {

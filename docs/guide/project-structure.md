@@ -54,7 +54,7 @@ goofishcbot/
 │           │   ├── goofish-conversations/ # 会话管理
 │           │   ├── bot-autoreply/       # 自动回复
 │           │   ├── bot-autosell/        # 自动发货
-│           │   ├── bot-workflow/        # 工作流
+│           │   ├── bot-workflow/        # 发货流程
 │           │   ├── system-logs/         # 系统日志
 │           │   └── system-setting/      # 系统设置
 │           ├── layouts/      # 布局组件

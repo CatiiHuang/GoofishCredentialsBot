@@ -1,5 +1,7 @@
 # 自动回复
 
+![自动回复](/screenshots/autoreply.png)
+
 路由：`/autoreply`
 
 配置自动回复规则。
