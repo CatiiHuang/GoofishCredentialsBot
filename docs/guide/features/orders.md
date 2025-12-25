@@ -2,6 +2,8 @@
 
 路由：`/orders`
 
+![订单管理](/screenshots/orders.png)
+
 订单查询和发货操作页面。
 
 ## 功能

@@ -2,6 +2,8 @@
 
 路由：`/workflow`
 
+![工作流](/screenshots/workflow.png)
+
 可视化发货流程编辑器，基于 simple-mind-map 思维导图组件。
 
 ## 功能

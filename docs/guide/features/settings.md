@@ -2,6 +2,8 @@
 
 路由：`/setting`
 
+![系统设置](/screenshots/settings.png)
+
 系统配置页面。
 
 ## 主题设置

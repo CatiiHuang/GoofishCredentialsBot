@@ -2,6 +2,8 @@
 
 路由：`/dashboard`
 
+![仪表盘](/screenshots/dashboard.png)
+
 系统运行状态概览页面。
 
 ## 功能

@@ -2,6 +2,8 @@
 
 路由：`/autosell`
 
+![自动发货](/screenshots/autosell.png)
+
 配置虚拟商品自动发货规则。
 
 ## 功能

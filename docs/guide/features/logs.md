@@ -2,6 +2,8 @@
 
 路由：`/logs`
 
+![系统日志](/screenshots/logs.png)
+
 查看系统运行日志。
 
 ## 功能

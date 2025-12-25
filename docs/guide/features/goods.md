@@ -2,6 +2,8 @@
 
 路由：`/goods`
 
+![商品管理](/screenshots/goods.png)
+
 查看账号下的商品列表。
 
 ## 功能
