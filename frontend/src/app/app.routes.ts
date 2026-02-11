@@ -16,6 +16,14 @@ export const routes: Routes = [
                 (m) => m.ErrorNotfoundComponent
             )
     },
+    // 登录页面（独立，不加载主布局）
+    {
+        path: 'login',
+        loadComponent: () =>
+            import('./views/login/login.component').then(
+                (m) => m.LoginComponent
+            )
+    },
     // 业务页面（带主布局）
     {
         path: '',
