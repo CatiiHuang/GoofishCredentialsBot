@@ -30,7 +30,7 @@ export function createLoginMiddleware() {
 
       await next();
     } catch (error) {
-      logger.error('Login middleware error:', error);
+      logger.error(`Login middleware error: ${error?.toString?.()}`);
       return ctx.json({ error: 'Login middleware error' }, 401);
     }
   };

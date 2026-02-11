@@ -50,9 +50,7 @@ export function createApp() {
   upgradeWebSocket = nodeWS.upgradeWebSocket;
   injectWebSocket = nodeWS.injectWebSocket;
 
-  app.use('*', cors({
-    credentials: true
-  }));
+  app.use('*', cors());
 
   // 安全中间件 - 限制 API 只能从前端请求（排除 WebSocket）
   app.use('/api/*', securityMiddleware);
