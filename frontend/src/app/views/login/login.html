@@ -1,0 +1,40 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>登录系统</h2>
+      <p>请输入您的账号和密码</p>
+    </div>
+
+    <form (ngSubmit)="login()" class="login-form">
+      <!-- 用户名输入 -->
+      <div class="form-group">
+        <label for="username">用户名</label>
+        <input type="text" id="username" [ngModel]="username()" (ngModelChange)="username.set($event)" name="username"
+          required placeholder="请输入用户名" [disabled]="loading()">
+      </div>
+
+      <!-- 密码输入 -->
+      <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" id="password" [ngModel]="password()" (ngModelChange)="password.set($event)"
+          name="password" required placeholder="请输入密码" [disabled]="loading()">
+      </div>
+
+      <!-- 错误信息 -->
+      <div class="error-message" *ngIf="errorMessage()">
+        {{ errorMessage() }}
+      </div>
+
+      <!-- 按钮组 -->
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="reset()" [disabled]="loading()">
+          重置
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="loading()">
+          <span *ngIf="loading()">登录中...</span>
+          <span *ngIf="!loading()">登录</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
